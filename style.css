@@ -22,7 +22,7 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--background);
@@ -322,12 +322,12 @@ body {
 }
 
 .publication-authors {
-    font-weight: 500;
     color: var(--text-primary);
 }
 
 .publication-title {
-    font-style: italic;
+    /* font-style: italic; */
+    font-weight: 400;
     color: var(--text-primary);
     display: block;
     margin: 0.25rem 0;
