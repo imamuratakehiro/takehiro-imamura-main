@@ -303,17 +303,17 @@ body {
 
 .publication-list li {
     margin-bottom: 1.5rem;
-    padding-left: 1.5rem;
+    padding-left: 0;
     position: relative;
 }
 
 .publication-list li::before {
     /* content: '▹'; */
-    content: '';
-    position: absolute;
+    content: none;
+    /* position: absolute;
     left: 0;
     color: var(--primary-color);
-    font-size: 1.25rem;
+    font-size: 1.25rem; */
 }
 
 .publication-item {
