@@ -308,7 +308,8 @@ body {
 }
 
 .publication-list li::before {
-    content: '▹';
+    /* content: '▹'; */
+    content: '';
     position: absolute;
     left: 0;
     color: var(--primary-color);
