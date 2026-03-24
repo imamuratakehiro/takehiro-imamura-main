@@ -161,7 +161,7 @@ body {
     font-size: 1.125rem;
     line-height: 1.8;
     color: var(--text-secondary);
-    text-align: center;
+    text-align: justify;
 }
 
 /* Skills Section */
