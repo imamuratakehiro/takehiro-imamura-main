@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
+    <!-- Animated Background Curves -->
+    <svg class="bg-curves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800">
+        <path class="curve curve-1" d="M0,400 Q360,200 720,400 T1440,400 L1440,800 L0,800 Z" fill="rgba(99, 102, 241, 0.05)"/>
+        <path class="curve curve-2" d="M0,500 Q360,300 720,500 T1440,500 L1440,800 L0,800 Z" fill="rgba(59, 130, 246, 0.05)"/>
+        <path class="curve curve-3" d="M0,600 Q360,400 720,600 T1440,600 L1440,800 L0,800 Z" fill="rgba(139, 92, 246, 0.03)"/>
+    </svg>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -32,6 +39,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
+                <img src="me_in_ly.jpg" alt="Takehiro Imamura" class="hero-image">
                 <h1 class="hero-title">Takehiro Imamura</h1>
                 <p class="hero-subtitle">Master's Student at Nagoya University</p>
                 <div class="social-links">
@@ -376,10 +384,26 @@
 
 
     <script>
+        // Hero Section Special Animations
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Heroセクションが画面に表示されたら要素を順番に表示
+                    entry.target.classList.add('hero-visible');
+                } else {
+                    // Heroセクションが画面外に出たら非表示に
+                    entry.target.classList.remove('hero-visible');
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.2
+        });
+
         // Intersection Observer for scroll animations
         const observerOptions = {
             root: null,
-            rootMargin: '-150px 0px -150px 0px', // 上部と下部で早めに検出
+            rootMargin: '-80px 0px -80px 0px', // 上部と下部で早めに検出
             threshold: 0.05
         };
 
@@ -412,6 +436,13 @@
 
         // Target elements to animate
         document.addEventListener('DOMContentLoaded', () => {
+            // Hero要素の監視
+            const heroElements = document.querySelectorAll('.hero-image, .hero-title, .hero-subtitle, .social-links');
+            heroElements.forEach(element => {
+                heroObserver.observe(element);
+            });
+
+            // その他のセクションの要素の監視
             const elementsToAnimate = document.querySelectorAll(
                 '.section-title, .about-content, .skill-category, .timeline-item, .publication-category, .publication-item'
             );
