@@ -42,7 +42,9 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     z-index: 1000;
     padding: 1rem 0;
 }
@@ -402,14 +404,25 @@ body {
 
 /* Scroll Animations */
 .fade-element {
-    opacity: 0;
-    transform: translateY(100px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+/* 画面に表示中 */
 .fade-element.fade-in {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* 画面下部から現れる/消える（下から上へ現れる、上から下へ消える） */
+.fade-element.fade-out-down {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* 画面上部から現れる/消える（上から下へ現れる、下から上へ消える） */
+.fade-element.fade-out-up {
+    opacity: 0;
+    transform: translateY(-50px);
 }
 
 /* Responsive Design */

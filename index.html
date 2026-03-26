@@ -379,16 +379,33 @@
         // Intersection Observer for scroll animations
         const observerOptions = {
             root: null,
-            rootMargin: '-80px 0px 0px 0px', // ヘッダーの高さ分を考慮
-            threshold: 0.1
+            rootMargin: '-150px 0px -150px 0px', // 上部と下部で早めに検出
+            threshold: 0.05
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                const rect = entry.boundingClientRect;
+                const viewportHeight = window.innerHeight;
+
                 if (entry.isIntersecting) {
+                    // 画面に表示中
                     entry.target.classList.add('fade-in');
+                    entry.target.classList.remove('fade-out-down', 'fade-out-up');
                 } else {
                     entry.target.classList.remove('fade-in');
+
+                    if (rect.top > viewportHeight / 2) {
+                        // 要素が画面下部にある（これから下部から現れる or 下部へ消える）
+                        // 消える時: 下方向にフェードアウト
+                        entry.target.classList.remove('fade-out-up');
+                        entry.target.classList.add('fade-out-down');
+                    } else {
+                        // 要素が画面上部にある（これから上部から現れる or 上部へ消える）
+                        // 消える時: 上方向にフェードアウト
+                        entry.target.classList.remove('fade-out-down');
+                        entry.target.classList.add('fade-out-up');
+                    }
                 }
             });
         }, observerOptions);
@@ -401,6 +418,19 @@
 
             elementsToAnimate.forEach(element => {
                 element.classList.add('fade-element');
+
+                // 初期状態での要素の位置を判定
+                const rect = element.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+
+                if (rect.top > viewportHeight) {
+                    // 要素が画面下部にある → 下から上へフェードイン（初期状態）
+                    element.classList.add('fade-out-down');
+                } else if (rect.bottom < 0) {
+                    // 要素が画面上部にある → 上から下へフェードイン（初期状態）
+                    element.classList.add('fade-out-up');
+                }
+
                 observer.observe(element);
             });
         });
