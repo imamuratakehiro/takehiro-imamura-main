@@ -374,7 +374,37 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '-80px 0px 0px 0px', // ヘッダーの高さ分を考慮
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                } else {
+                    entry.target.classList.remove('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Target elements to animate
+        document.addEventListener('DOMContentLoaded', () => {
+            const elementsToAnimate = document.querySelectorAll(
+                '.section-title, .about-content, .skill-category, .timeline-item, .publication-category, .publication-item'
+            );
+
+            elementsToAnimate.forEach(element => {
+                element.classList.add('fade-element');
+                observer.observe(element);
+            });
+        });
+    </script>
+
 </body>
 </html>
