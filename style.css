@@ -22,6 +22,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 }
 
 body {
@@ -30,7 +31,13 @@ body {
     color: var(--text-primary);
     background-color: var(--background);
     position: relative;
+    width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
+}
+
+.scroll-snap {
+    scroll-snap-align: start;
 }
 
 /* Animated Background Curves */
@@ -294,12 +301,26 @@ body::after {
 }
 
 .about-content {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
     max-width: 800px;
+    min-height: 100vh;
     margin: 0 auto;
-    font-size: 1.125rem;
+    width: 100%;
+
+    /* Typography */
     line-height: 1.8;
     color: var(--text-secondary);
-    text-align: justify;
+    /* text-align: justify; */
+    text-align: center;
+
+    /* Scroll */
+    scroll-snap-align: start;
 }
 
 /* Skills Section */
