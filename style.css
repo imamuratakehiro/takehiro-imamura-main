@@ -646,6 +646,10 @@ body::after {
 }
 
 @media (max-width: 480px) {
+    html {
+        scroll-snap-type: y proximity;
+    }
+    
     .container {
         padding: 0 5%;
     }
