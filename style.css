@@ -31,7 +31,7 @@ body {
     font-size: clamp(1rem, 2vw, 1.5rem);
     line-height: 1.6;
     color: var(--text-primary);
-    background-color: var(--background);
+    /* background-color: var(--background); */
     position: relative;
     width: 100%;
     max-width: 100%;
@@ -80,7 +80,7 @@ body {
     }
 }
 
-body::before {
+/* body::before {
     content: '';
     position: fixed;
     top: 0;
@@ -89,9 +89,9 @@ body::before {
     height: 100%;
     background: #f9fafb;
     z-index: -2;
-}
+} */
 
-body::after {
+/* body::after {
     content: '';
     position: fixed;
     top: 0;
@@ -101,9 +101,9 @@ body::after {
     background-image:
         radial-gradient(ellipse 800px 600px at 20% 30%, rgba(224, 231, 255, 0.5) 0%, transparent 50%),
         radial-gradient(ellipse 600px 800px at 80% 70%, rgba(219, 234, 254, 0.4) 0%, transparent 50%);
-    /* animation: floatCurve 20s ease-in-out infinite; */
+    animation: floatCurve 20s ease-in-out infinite;
     z-index: -1;
-}
+} */
 
 @keyframes floatCurve {
     0%, 100% {
@@ -646,10 +646,7 @@ body::after {
 }
 
 @media (max-width: 480px) {
-    html {
-        scroll-snap-type: y proximity;
-    }
-    
+
     .container {
         padding: 0 5%;
     }
