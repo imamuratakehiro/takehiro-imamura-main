@@ -420,6 +420,10 @@ body {
     margin-left: 0.5rem;
 }
 
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
 .timeline-date {
     font-size: clamp(0.875rem, 2vw, 1.25rem);
     color: var(--primary-color);
@@ -667,6 +671,10 @@ body {
 }
 
 @media (max-width: 480px) {
+
+    html {
+        scroll-snap-type: y proximity;
+    }
 
     .container {
         padding: 0 5%;
