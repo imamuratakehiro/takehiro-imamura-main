@@ -136,24 +136,31 @@ body {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     z-index: 1000;
-    padding: 1rem 0;
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1rem 2rem;
 }
 
 .nav-brand {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
+    font-size: clamp(1.5rem, 2vw, 2.0rem);
     font-weight: 700;
     color: var(--primary-color);
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-decoration: none;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
+    padding-left: 10px;
     gap: 2rem;
 }
 
@@ -389,7 +396,10 @@ body {
 
 .timeline-item {
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
+
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1.5rem;
 }
 
 .timeline-marker {
@@ -403,38 +413,48 @@ body {
 }
 
 .timeline-content {
-    background: white;
+    /* background: white;
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: var(--shadow);
-    margin-left: 1rem;
+    box-shadow: var(--shadow); */
+    margin-left: 0.5rem;
 }
 
 .timeline-date {
+    font-size: clamp(0.875rem, 2vw, 1.25rem);
     color: var(--primary-color);
     font-weight: 600;
-    font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
+
+    margin-left: 0;
 }
 
 .timeline-title {
-    font-size: clamp(1.125rem, 2vw, 1.825rem);;
+    font-size: clamp(1.125rem, 2vw, 1.825rem);
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
+
+    margin-left: 0rem;
 }
 
 .timeline-subtitle {
-    color: var(--text-secondary);
+    font-size: clamp(1rem, 2vw, 1.5rem);
     font-weight: 500;
-    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    /* margin-bottom: 0.5rem; */
+
+    margin-left: 1rem;
 }
 
 .timeline-description {
+    font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.6;
+
+    margin-left: 1rem;
 }
 
 /* Publications Section */
@@ -447,7 +467,7 @@ body {
 }
 
 .publication-category-title {
-    font-size: clamp(1.25rem, 2vw, 1.75rem);;
+    font-size: clamp(1.5rem, 2vw, 2rem);;
     font-weight: 600;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
@@ -494,7 +514,7 @@ body {
 
 .publication-venue {
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: clamp(0.95rem, 2vw, 1.25rem);;
 }
 
 /* Awards Section */
@@ -557,6 +577,7 @@ body {
     color: white;
     text-align: center;
     padding: 2rem 0;
+    scroll-snap-align: none;
 }
 
 /* Scroll Animations */
