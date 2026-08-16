@@ -376,6 +376,19 @@ body {
     border-bottom: none;
 }
 
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.skill-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
 /* Timeline Styles */
 .timeline {
     max-width: 800px;
